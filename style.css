@@ -1,4 +1,4 @@
-button:focus {outline:0;}
+button:focus, input:focus {outline:0;}
 
 .main-navbar {
 	margin-top: 100px;
@@ -38,6 +38,100 @@ button:focus {outline:0;}
 	border: 0;
 }
 
+#settings-btn {
+	font-family: Georgia, serif;
+	padding: 0;
+	border: none;
+	background: none;
+	line-height: 10px;
+	color: gray;
+}
+
+#settings-btn:hover {
+	color: black;
+	cursor: pointer;
+	border-bottom: 1px solid black;
+}
+
+/* The Modal (background) */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 200px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content - The actual Box */
+.modal-content {
+    background-color: rgb(239, 240, 242);
+    margin: auto;
+    padding: 0 7px 20px 20px; /*Padding of the box*/
+    border: 3px solid rgb(71, 74, 79);
+    border-radius: 15px;
+    width: 30%;
+}
+
+.modal-content h1 {
+	color: rgb(71, 74, 79);
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
+	font-size: 18pt;
+	font-weight: 200;
+}
+
+.set-times form {
+	font-family: Arial, Helvetica, sans-serif;
+	display: inline;
+	margin-left: 10px;
+	font-size: 12pt;
+}
+
+input[type="text"]#min-label {
+	-webkit-user-select: none; /* webkit (safari, chrome) browsers */
+    -moz-user-select: none; /* mozilla browsers */
+    text-align: right;
+    outline: none;
+    margin: 0 0 0 -8px;
+    width: 55px;
+    height: 25px;
+    border-left:0px;
+    background-color: white;
+    color: black;
+    padding-left: 0;
+    padding-right: 6px;
+}
+
+.set-times input[type="text"] {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11pt;
+	padding-left: 6px;
+	margin-left: 3px;
+	width: 24px;
+	height: 25px;
+	border-right: 0px;
+}
+
+/* The Close Button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover, .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* CSS for Timer and Timer Buttons */
 #timer-wrapper {
 	margin: 50px auto 10px;
 	text-align: center;
@@ -83,6 +177,7 @@ button:focus {outline:0;}
 	box-shadow: 7px 7px 15px 0px rgba(208,207,255,1);
 }
 
+/* CSS for Sound buttons */
 .sounds-navbar {
 	text-align: center;
 }
