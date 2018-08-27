@@ -170,15 +170,15 @@ function shuffle() {
 		displayTimer();
 	}
 }
+//////////////////
+// Sound navbar //
+//////////////////
 
-// Sound navbar Buttons
-var whiteNoise = new Audio("sounds/white-noise.wav");
+//list of all audio elements
+var sounds = document.getElementsByTagName('audio');
 
+// function to toggle the sound
 function toggleSound(keyNum) {
-	/*const audios = Array.from(document.querySelectorAll('audio'));
-	audios.forEach((audio)) => {
-		audio.pause();
-	}*/
     const sound = document.querySelector(`audio[data-key="${keyNum}"]`);
     const btn = document.querySelector(`button[data-key="${keyNum}"]`);
     if (!sound) return;
@@ -194,6 +194,7 @@ function toggleSound(keyNum) {
     }
 }
 
+// get queryList of sound buttons
 const soundButtons = Array.from(document.querySelectorAll('.sound'));
 soundButtons.forEach((button) => {
   	button.addEventListener('click', 
@@ -202,13 +203,13 @@ soundButtons.forEach((button) => {
   		});
 });
 
-var muteBtn = document.getElementById('mute');
+var muteBtn = document.getElementByClassName('mute');
 
 muteBtn.onclick = function() {
-  	var sounds = document.getElementsByTagName('audio');
   	for(i=0; i<sounds.length; i++) sounds[i].pause();
 
   	soundButtons.forEach((button) => {
   		button.classList.remove('playing');
   	});
 };
+

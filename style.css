@@ -96,25 +96,26 @@ button:focus {outline:0;}
   	transition: all .05s;
 }
 
-.sounds-navbar button#white-noise:hover, #white-noise.playing{
+#mute:hover {
+	transform: scale(1.2);
+	border-color: black;
+}
+
+#white-noise-btn:hover, #white-noise-btn.playing{
 	transform: scale(1.2);
 	border-color: rgb(229, 229, 229);
 }
-.sounds-navbar button#rain:hover, #rain.playing {
+#rain-btn:hover, #rain-btn.playing {
 	transform: scale(1.2);
 	border-color: rgb(52, 98, 173);
 }
-.sounds-navbar button#campfire:hover, #campfire.playing {
+#campfire-btn:hover, #campfire-btn.playing {
 	transform: scale(1.2);
 	border-color: rgb(237, 47, 14);
 }
-.sounds-navbar button#waves:hover, #waves.playing {
+#waves-btn:hover, #waves-btn.playing {
 	transform: scale(1.2);
 	border-color: rgb(69, 209, 148);
-}
-.sounds-navbar button#mute:hover, {
-	transform: scale(1.2);
-	border-color: gray;
 }
 
 .sounds-navbar img {
