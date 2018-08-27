@@ -37,6 +37,7 @@ const timer = document.querySelector('#timer');
 let counter = 0;
 let timeLeft = 1500;
 let timerOn = false;
+let timerPaused = false;
 timer.textContent = convertSeconds(timeLeft);
 
 function timeIt() {
@@ -47,7 +48,23 @@ function timeIt() {
 	timer.textContent = convertSeconds(timeLeft - counter);
 }
 
-// Button functions
+// Shuffle Button functions
+var shuffleBtn = document.querySelector('#shuffle');
+var title = document.querySelector('#pomodoro');
+
+function shuffle() {
+	if (title.textContent == "Pomodoro") {
+		title.textContent = "Break";
+		timeLeft = 300;
+		timer.textContent = convertSeconds(timeLeft);
+	}
+	else {
+		title.textContent = "Pomodoro";
+		timeLeft = 1500;
+		timer.textContent = convertSeconds(timeLeft);
+	}
+}
+// Timer Buttons functions
 var startBtn = document.querySelector('#start');
 var stopBtn = document.querySelector('#stop');
 var resetBtn = document.querySelector('#reset');
@@ -60,12 +77,12 @@ function startTimer() {
 	if (!timerOn)
 	{
 		timerInterval = setInterval(timeIt,1000);
+		timerOn = true;
 	}
-	timerOn = true;
 }
 
 function stopTimer() {
-	if (timerOn = true)
+	if (timerOn)
 	{
 		clearInterval(timerInterval)
 		stopBtn.classList.add("btnOn");
@@ -76,14 +93,21 @@ function stopTimer() {
 }
 
 function resetTimer() {
+	clearInterval(timerInterval)
 	startBtn.classList.remove("btnOn");
 	stopBtn.classList.remove("btnOn");
 	counter = 0;
-	timeLeft = 1500;
+	if (title.textContent == "Pomodoro"){
+		timeLeft = 1500;
+	}
+	else {
+		timeLeft = 300;
+	}
 	timer.textContent = convertSeconds(timeLeft);
 	timerOn = false;
 }
 
+// Switch to Break when Timer runs out and vice versa
 
 
 
