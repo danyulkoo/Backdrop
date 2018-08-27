@@ -174,9 +174,6 @@ function shuffle() {
 // Sound navbar //
 //////////////////
 
-//list of all audio elements
-var sounds = document.getElementsByTagName('audio');
-
 // function to toggle the sound
 function toggleSound(keyNum) {
     const sound = document.querySelector(`audio[data-key="${keyNum}"]`);
@@ -203,9 +200,11 @@ soundButtons.forEach((button) => {
   		});
 });
 
-var muteBtn = document.getElementByClassName('mute');
+var muteBtn = document.getElementById('mute');
 
 muteBtn.onclick = function() {
+	//list of all audio elements
+	var sounds = document.getElementsByTagName('audio');
   	for(i=0; i<sounds.length; i++) sounds[i].pause();
 
   	soundButtons.forEach((button) => {
