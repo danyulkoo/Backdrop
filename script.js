@@ -32,16 +32,20 @@ function convertSeconds(s)
 	}
 }
 
+// Timer variables
 const timer = document.querySelector('#timer');
+let studyTime = 1500;
+let brkTime = 300;
+
 let counter = 0;
-let timeLeft = 5;
+let timeLeft = studyTime;
 let timerOn = false;
 // Set Initial timer display to 25 min
 displayTimer();
 
-function setTimer(brk) {
+function setTimer(t) {
 	counter = 0;
-	timeLeft = brk;
+	timeLeft = t;
 }
 
 function displayTimer() {
@@ -91,20 +95,20 @@ function timeIt() {
 
 		// Switch to Break when Timer runs out and vice versa
 		if (checkPomodoro()) {
-			if (confirm("Switch to 5-minute break?")) {
+			if (confirm("Switch to a short break?")) {
 				shuffle();
 			}
 			else {
-				setTimer(1500);
+				setTimer(studyTime);
 				displayTimer();
 			}
 		}
 		else {
-			if (confirm("Switch to 25-min studying?")) {
+			if (confirm("Switch to a study session?")) {
 				shuffle();
 			}
 			else {
-				setTimer(300);
+				setTimer(brkTime);
 				displayTimer();
 			}
 		}
@@ -133,10 +137,10 @@ function resetTimer() {
 	stopBtn.classList.remove("btnOn");
 	counter = 0;
 	if (checkPomodoro()){
-		timeLeft = 1500;
+		timeLeft = studyTime;
 	}
 	else {
-		timeLeft = 300;
+		timeLeft = brkTime;
 	}
 	displayTimer();
 	timerOn = false;
@@ -151,7 +155,7 @@ function shuffle() {
 		resetBtn.classList.remove("btnOn");
 
 		turnTimerOff();
-		setTimer(300);
+		setTimer(brkTime);
 		displayTimer();
 	}
 	else {
@@ -162,7 +166,7 @@ function shuffle() {
 		resetBtn.classList.remove("btnOn");
 
 		turnTimerOff();
-		setTimer(1500);
+		setTimer(studyTime);
 		displayTimer();
 	}
 }
