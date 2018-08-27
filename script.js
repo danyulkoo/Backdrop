@@ -34,8 +34,9 @@ function convertSeconds(s)
 
 // Timer variables
 const timer = document.querySelector('#timer');
-let studyTime = 1500;
-let brkTime = 300;
+let studyTime = 5;
+let brkTime = 5;
+var alarm = new Audio('sounds/timerbeep.wav');
 
 let counter = 0;
 let timeLeft = studyTime;
@@ -88,10 +89,15 @@ function turnTimerOff() {
 }
 
 function timeIt() {
+	// If timer runs out
 	if (counter == timeLeft) {
 		timer.textContent = "00:00";
 		startBtn.classList.remove("btnOn");
 		turnTimerOff();
+
+		// Play alarm sound
+		alarm.currentTime = 0;
+		alarm.play();
 
 		// Switch to Break when Timer runs out and vice versa
 		if (checkPomodoro()) {
@@ -112,6 +118,9 @@ function timeIt() {
 				displayTimer();
 			}
 		}
+		// Pause alarm sound after they confirm alert
+		alarm.currentTime = 0;
+		alarm.pause();
 	}
 	else if (counter < timeLeft) {
 		counter++;
@@ -212,3 +221,21 @@ muteBtn.onclick = function() {
   	});
 };
 
+// Settings functions
+// Get the modal
+var modal = document.getElementById("settings-modal");
+// Get the button that opens the modal
+var settingsBtn = document.getElementById("settings-btn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on the button, open the modal 
+settingsBtn.onclick = function() {
+    modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+    modal.style.display = "none";
+}

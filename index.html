@@ -9,6 +9,29 @@
 		<h1 id="pomodoro">Pomodoro</h1>
 		<button id="shuffle" onclick="shuffle()"><img src="icons/shuffle.png"></button>
 	</div>
+	<div style="text-align: center">
+		<button id="settings-btn">Settings</button>
+	</div>
+
+	<div id="settings-modal" class="modal">
+		<div class="modal-content">
+			<span class="close">&times;</span>
+			<div class="set-times">
+				<h1><u>Set Custom Times</u></h1>
+				<form action="">
+					Study Time:
+					<input type="text" name="studytime" value="25" maxlength="2">
+					<input type="text" id="min-label" value="minutes" disabled>
+				</form>
+				<form action="">
+					Break Time:
+					<input type="text" name="breaktime" value="5" maxlength="2">
+					<input type="text" id="min-label" value="minutes" disabled>
+				</form>
+			</div>
+		</div>
+	</div>
+
 	<div id="timer-wrapper">
 		<div class="timer-buttons">
 			<button id="start" onclick="startTimer()" style="background-color: rgb(145, 214, 122)">Start</button>
