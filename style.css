@@ -11,19 +11,36 @@
 	margin: 10px auto ;
 }
 
+button:focus {outline:0;}
+
 .timer-buttons button {
 	margin: 3px 20px;
 	font-family: "Trebuchet MS", Helvetica, sans-serif;
-	color: rgb(72, 81, 84);
+	color: rgb(232, 235, 239);
 	font-size: 20px;
 	border-radius: 10px;
 	border: 3px solid gray;
-	background-color: white;
+	transition: all 0.05s;
 }
 
-.timer-buttons button .on {
-	
+.timer-buttons button:hover {
+	transform: scale(1.15);
 }
+.timer-buttons #reset:active {
+	transform: scale(1.15);
+	color: rgb(62, 65, 68);
+	border-color: rgb(62, 65, 68);
+	box-shadow: 7px 7px 15px 0px rgba(208,207,255,1);
+}
+
+.timer-buttons .btnOn {
+	transform: scale(1.15);
+	color: rgb(62, 65, 68);
+	font-weight: bold;
+	border-color: rgb(62, 65, 68);
+	box-shadow: 7px 7px 15px 0px rgba(208,207,255,1);
+}
+
 .sounds-navbar {
 	text-align: center;
 }
