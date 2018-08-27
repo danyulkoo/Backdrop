@@ -96,9 +96,25 @@ button:focus {outline:0;}
   	transition: all .05s;
 }
 
-.sounds-navbar button:hover {
+.sounds-navbar button#white-noise:hover {
+	transform: scale(1.2);
+	border-color: rgb(229, 229, 229);
+}
+.sounds-navbar button#rain:hover {
 	transform: scale(1.2);
 	border-color: rgb(52, 98, 173);
+}
+.sounds-navbar button#campfire:hover {
+	transform: scale(1.2);
+	border-color: rgb(237, 47, 14);
+}
+.sounds-navbar button#waves:hover {
+	transform: scale(1.2);
+	border-color: rgb(69, 209, 148);
+}
+.sounds-navbar button#mute:hover {
+	transform: scale(1.2);
+	border-color: gray;
 }
 
 .sounds-navbar .playing {
