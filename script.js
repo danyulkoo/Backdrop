@@ -34,8 +34,8 @@ function convertSeconds(s)
 
 // Timer variables
 const timer = document.querySelector('#timer');
-let studyTime = 5;
-let brkTime = 5;
+let studyTime = 1500;
+let brkTime = 300;
 var alarm = new Audio('sounds/timerbeep.wav');
 
 let counter = 0;
