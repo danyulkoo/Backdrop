@@ -88,7 +88,7 @@ button:focus {outline:0;}
 }
 
 .sounds-navbar button {
-	margin: 5px 20px;
+	margin: 0 20px;
 	border-radius: 15px;
   	border: 2px solid gray;
   	padding: 5px;

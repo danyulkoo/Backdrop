@@ -33,43 +33,40 @@ function convertSeconds(s)
 }
 
 const timer = document.querySelector('#timer');
-
 let counter = 0;
-let timeLeft = 1500;
+let timeLeft = 5;
 let timerOn = false;
-let timerPaused = false;
-timer.textContent = convertSeconds(timeLeft);
+// Set Initial timer display to 25 min
+displayTimer();
 
-function timeIt() {
-	if (counter < timeLeft)
-	{
-		counter++;
-	}
-	timer.textContent = convertSeconds(timeLeft - counter);
+function setTimer(brk) {
+	counter = 0;
+	timeLeft = brk;
 }
 
+function displayTimer() {
+	timer.textContent = convertSeconds(timeLeft - counter);
+}
 // Shuffle Button functions
 var shuffleBtn = document.querySelector('#shuffle');
 var title = document.querySelector('#pomodoro');
 
-function shuffle() {
+function checkPomodoro() {
 	if (title.textContent == "Pomodoro") {
-		title.textContent = "Break";
-		timeLeft = 300;
-		timer.textContent = convertSeconds(timeLeft);
+		return true;
 	}
 	else {
-		title.textContent = "Pomodoro";
-		timeLeft = 1500;
-		timer.textContent = convertSeconds(timeLeft);
+		return false;
 	}
 }
+
+var timerInterval;
+
 // Timer Buttons functions
 var startBtn = document.querySelector('#start');
 var stopBtn = document.querySelector('#stop');
 var resetBtn = document.querySelector('#reset');
 
-var timerInterval;
 function startTimer() {
 	startBtn.classList.add("btnOn");
 	stopBtn.classList.remove("btnOn");
@@ -81,10 +78,48 @@ function startTimer() {
 	}
 }
 
+function turnTimerOff() {
+	clearInterval(timerInterval);
+	timerOn = false;
+}
+
+function timeIt() {
+	if (counter == timeLeft) {
+		timer.textContent = "00:00";
+		startBtn.classList.remove("btnOn");
+		turnTimerOff();
+
+		// Switch to Break when Timer runs out and vice versa
+		if (checkPomodoro()) {
+			if (confirm("Switch to 5-minute break?")) {
+				shuffle();
+			}
+			else {
+				setTimer(1500);
+				displayTimer();
+			}
+		}
+		else {
+			if (confirm("Switch to 25-min studying?")) {
+				shuffle();
+			}
+			else {
+				setTimer(300);
+				displayTimer();
+			}
+		}
+	}
+	else if (counter < timeLeft) {
+		counter++;
+	}
+
+	displayTimer();
+}
+
 function stopTimer() {
 	if (timerOn)
 	{
-		clearInterval(timerInterval)
+		turnTimerOff();
 		stopBtn.classList.add("btnOn");
 		startBtn.classList.remove("btnOn");
 		resetBtn.classList.remove("btnOn");
@@ -97,17 +132,37 @@ function resetTimer() {
 	startBtn.classList.remove("btnOn");
 	stopBtn.classList.remove("btnOn");
 	counter = 0;
-	if (title.textContent == "Pomodoro"){
+	if (checkPomodoro()){
 		timeLeft = 1500;
 	}
 	else {
 		timeLeft = 300;
 	}
-	timer.textContent = convertSeconds(timeLeft);
+	displayTimer();
 	timerOn = false;
 }
 
-// Switch to Break when Timer runs out and vice versa
+function shuffle() {
+	if (checkPomodoro()) {
+		title.textContent = "Break";
 
+		stopBtn.classList.remove("btnOn");
+		startBtn.classList.remove("btnOn");
+		resetBtn.classList.remove("btnOn");
 
+		turnTimerOff();
+		setTimer(300);
+		displayTimer();
+	}
+	else {
+		title.textContent = "Pomodoro";
 
+		stopBtn.classList.remove("btnOn");
+		startBtn.classList.remove("btnOn");
+		resetBtn.classList.remove("btnOn");
+
+		turnTimerOff();
+		setTimer(1500);
+		displayTimer();
+	}
+}
