@@ -170,3 +170,45 @@ function shuffle() {
 		displayTimer();
 	}
 }
+
+// Sound navbar Buttons
+var whiteNoise = new Audio("sounds/white-noise.wav");
+
+function toggleSound(keyNum) {
+	/*const audios = Array.from(document.querySelectorAll('audio'));
+	audios.forEach((audio)) => {
+		audio.pause();
+	}*/
+    const sound = document.querySelector(`audio[data-key="${keyNum}"]`);
+    const btn = document.querySelector(`button[data-key="${keyNum}"]`);
+    if (!sound) return;
+
+    if (sound.paused) {
+    	btn.classList.add('playing');
+    	sound.currentTime = 0;
+    	sound.play();
+    }
+    else {
+    	btn.classList.remove('playing');
+    	sound.pause();
+    }
+}
+
+const soundButtons = Array.from(document.querySelectorAll('.sound'));
+soundButtons.forEach((button) => {
+  	button.addEventListener('click', 
+  		function() {
+  			toggleSound(button.getAttribute('data-key'));
+  		});
+});
+
+var muteBtn = document.getElementById('mute');
+
+muteBtn.onclick = function() {
+  	var sounds = document.getElementsByTagName('audio');
+  	for(i=0; i<sounds.length; i++) sounds[i].pause();
+
+  	soundButtons.forEach((button) => {
+  		button.classList.remove('playing');
+  	});
+};

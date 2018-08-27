@@ -18,12 +18,17 @@
 		<p id="timer">Timer</p>
 	</div>
 	<div class="sounds-navbar">
-		<button type="button"><img src="icons/white-noise-icon.png" alt="White Noise Icon"></button>
-		<button type="button"><img src="icons/rain-icon.png" alt="Rainfall Icon"></button>
-		<button type="button"><img src="icons/campfire-icon.png" alt="Campfire Icon"></button>
-		<button type="button"><img src="icons/waves-icon.png" alt="Ocean Waves Icon"></button>
-		<button type="button"><img src="icons/mute-icon.png" alt="No Sound Icon"></button>
+		<button data-key="1" class="sound"><img src="icons/white-noise-icon.png" alt="White Noise Icon"></button>
+		<button data-key="2" class="sound"><img src="icons/rain-icon.png" alt="Rainfall Icon"></button>
+		<button data-key="3" class="sound"><img src="icons/campfire-icon.png" alt="Campfire Icon"></button>
+		<button data-key="4" class="sound"><img src="icons/waves-icon.png" alt="Ocean Waves Icon"></button>
+		<button data-key="5" id="mute"><img src="icons/mute-icon.png" alt="No Sound Icon"></button>
 	</div>
+
+	<audio loop data-key="1" src="sounds/white-noise.wav"></audio>
+	<audio loop data-key="2" src="sounds/rain.wav"></audio>
+	<audio loop data-key="3" src="sounds/campfire.wav"></audio>
+	<audio loop data-key="4" src="sounds/waves.wav"></audio>
 	<script src="script.js"></script>
 </body>
 </html>

@@ -97,7 +97,14 @@ button:focus {outline:0;}
 }
 
 .sounds-navbar button:hover {
-	transform: scale(1.1);
+	transform: scale(1.2);
+	border-color: rgb(52, 98, 173);
+}
+
+.sounds-navbar .playing {
+	transform: scale(1.2);
+	border-color: rgb(52, 98, 173);
+	background-color: rgb(214, 229, 252);
 }
 
 .sounds-navbar img {
