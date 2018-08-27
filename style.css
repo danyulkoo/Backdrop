@@ -1,8 +1,42 @@
 #timer-wrapper {
-	margin: 0;
-	font-size: 100px;
+	margin: 200px auto 10px;
+	text-align: center;
 }
 
 #timer {
-	margin: 0;
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
+	font-size: 100px;
+	color: rgb(103, 114, 117);
+	text-align: center;
+	margin: 10px auto ;
+}
+
+.timer-buttons button {
+	margin: 3px 20px;
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
+	color: rgb(72, 81, 84);
+	font-size: 20px;
+	border-radius: 10px;
+	border: 3px solid gray;
+	background-color: white;
+}
+
+.timer-buttons button .on {
+	
+}
+.sounds-navbar {
+	text-align: center;
+}
+
+.sounds-navbar button {
+	margin: 5px 20px;
+	border-radius: 15px;
+  	border: 2px solid gray;
+  	padding: 5px;
+  	background-color: white;
+}
+
+.sounds-navbar img {
+	width: 40px;
+	height: 40px;
 }

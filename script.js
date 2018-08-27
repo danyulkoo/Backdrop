@@ -47,4 +47,5 @@ function timeIt() {
 	timer.innerHTML = convertSeconds(timeLeft - counter);
 }
 
-setInterval(timeIt, 1000);
+var startBtn = document.querySelector('#start');
+startBtn.addEventListener('click', setInterval(timeIt,1000));
