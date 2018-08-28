@@ -4,6 +4,7 @@
 	<title>Backdrop</title>
 	<link href="style.css" type="text/css" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
 </head>
 <body style="background-color: rgb(237, 243, 255);">
 	<div class="container">
@@ -16,24 +17,25 @@
 	<div style="text-align: center; min-width: 600px;">
 		<button id="settings-btn">Settings</button>
 	</div>
-
 	<div id="settings-modal" class="modal" style="min-width: 600px">
-		<div class="modal-content" style="min-width: 434px">
-			<span class="close">&times;</span>
+		<div class="modal-content">
+			<button class="close">&times;</button>
 			<div class="set-times">
 				<h1><u>Set Custom Times</u></h1>
 				<form id="custom-study" action="">
-					Study Time:
-					<input type="text" name="studytime" value="25" maxlength="2">
-					<input type="text" id="min-label" value="minutes" style="margin-right: 20px" disabled>
-					Break Time:
-					<input type="text" name="breaktime" value="05" maxlength="2">
-					<input type="text" id="min-label" value="minutes" disabled>
+					<div id="study-time" class="custom-input">
+						<span>Study Time:</span>
+						<input type="text" name="studytime" value="25" maxlength="2">
+						<input type="text" id="min-label" value="minutes" disabled>
+					</div>
+					<div id="break-time" class="custom-input">
+						<span>Break Time:</span>
+						<input type="text" name="breaktime" value="05" maxlength="2">
+						<input type="text" id="min-label" value="minutes" disabled>
+					</div>
 				</form>
 			</div>
-			<div id="save">
-				<button id="savebtn">Save</button>
-			</div>
+			<button id="savebtn">Save</button>
 		</div>
 	</div>
 
@@ -68,7 +70,6 @@
 		<span id="dot" data-key="3">&#9679;</span>
 		<span id="dot" data-key="4">&#9679;</span>
 	</div>
-
 	<audio loop data-key="1" src="sounds/white-noise.wav"></audio>
 	<audio loop data-key="2" src="sounds/rain.wav"></audio>
 	<audio loop data-key="3" src="sounds/campfire.wav"></audio>

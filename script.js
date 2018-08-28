@@ -92,7 +92,7 @@ function turnTimerOff() {
 // Main timer function
 function timeIt() {
 	// If timer runs out
-	if (counter == timeLeft) {
+	if (counter >= timeLeft) {
 		timer.textContent = "00:00";
 		// turn Start button off
 		startBtn.classList.remove("btnOn");
