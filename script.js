@@ -150,7 +150,6 @@ function resetTimer() {
 		startBtn.classList.remove("btnOn");
 		stopBtn.classList.remove("btnOn");
 		counter = 0;
-		readTimeSettings();
 		updateTimeSettings();
 
 		if (checkPomodoro()) {
@@ -168,7 +167,6 @@ function shuffle() {
 	startBtn.classList.remove("btnOn");
 	resetBtn.classList.remove("disabled");
 	turnTimerOff();
-	readTimeSettings();
 	updateTimeSettings();
 	if (checkPomodoro()) {
 		title.textContent = "Break";
@@ -277,11 +275,13 @@ function formatSettingsInput () {
 		brkTimeBox.value = "0" + brkTimeBox.value;
 	}
 }
+
 savebtn.onclick = function () {
 	readTimeSettings();
 	formatSettingsInput();
 	modal.style.display = "none";
 	if (!timerOn && timerReset) {
+		updateTimeSettings();
 		if (checkPomodoro()) {
 			setTimer(studyTime);
 		}

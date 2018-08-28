@@ -218,7 +218,7 @@ input[type="text"]#min-label {
 	transition: all 0.05s;
 }
 
-.timer-buttons button:hover, .timer-buttons button:focus {
+.timer-buttons button:hover {
 	transform: scale(1.15);
 }
 
