@@ -38,7 +38,7 @@ button:focus, input:focus {outline:0;}
 	height: 30px;
 }
 
-.main-navbar button:hover {
+.main-navbar button:hover, .main-navbar button:focus {
 	transform: scale(1.1);
 	border-bottom: 1px solid black;
 	cursor: pointer;
@@ -66,7 +66,7 @@ button:focus, input:focus {outline:0;}
 	color: gray;
 }
 
-#settings-btn:hover {
+#settings-btn:hover, #settings-btn:focus {
 	color: black;
 	cursor: pointer;
 	border-bottom: 1px solid black;
@@ -197,7 +197,7 @@ input[type="text"]#min-label {
 	transition: all 0.05s;
 }
 
-.timer-buttons button:hover {
+.timer-buttons button:hover, .timer-buttons button:focus {
 	transform: scale(1.15);
 }
 
@@ -228,7 +228,9 @@ input[type="text"]#min-label {
 .sounds-navbar {
 	text-align: center;
 }
-
+.sounds-navbar p {
+	margin: 0;
+}
 .sounds-navbar button {
 	margin: 0 20px;
 	border-radius: 15px;
@@ -243,13 +245,10 @@ input[type="text"]#min-label {
 	border-color: black;
 }
 
-.sounds-navbar .playing {
-	background-color: rgb(222, 226, 239);
-}
 
 #white-noise-btn:hover, #white-noise-btn.playing{
 	transform: scale(1.2);
-	border-color: rgb(229, 229, 229);
+	border-color: rgb(94, 94, 94);
 }
 #rain-btn:hover, #rain-btn.playing {
 	transform: scale(1.2);
@@ -267,4 +266,16 @@ input[type="text"]#min-label {
 .sounds-navbar img {
 	width: 40px;
 	height: 40px;
+}
+
+.dots {
+	text-align: center;
+	margin-right: 15px;
+	margin-top: 6px;
+}
+.dots span{
+	color: rgb(66, 66, 66);
+	opacity: 0;
+	margin-right: 84px;
+	position: relative;
 }

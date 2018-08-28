@@ -41,6 +41,7 @@ var alarm = new Audio('sounds/timerbeep.wav');
 let counter = 0;
 let timeLeft = studyTime;
 let timerOn = false;
+let timerReset = true;
 // Set Initial timer display to 25 min
 displayTimer();
 
@@ -79,6 +80,7 @@ function startTimer() {
 	{
 		timerInterval = setInterval(timeIt,1000);
 		timerOn = true;
+		timerReset = false;
 	}
 }
 
@@ -137,18 +139,19 @@ function stopTimer() {
 		startBtn.classList.remove("btnOn");
 		resetBtn.classList.remove("disabled");
 		timerOn = false;
+		timerReset = false;
 	}
 }
 
 function resetTimer() {
+	timerReset = true;
 	if (!timerOn) {
 		clearInterval(timerInterval)
 		startBtn.classList.remove("btnOn");
 		stopBtn.classList.remove("btnOn");
 		counter = 0;
 		updateTimeSettings();
-		console.log(studyTime);
-		console.log(brkTime);
+
 		if (checkPomodoro()) {
 			setTimer(studyTime);
 		}
@@ -160,28 +163,20 @@ function resetTimer() {
 }
 
 function shuffle() {
+	stopBtn.classList.remove("btnOn");
+	startBtn.classList.remove("btnOn");
+	resetBtn.classList.remove("disabled");
+	turnTimerOff();
 	if (checkPomodoro()) {
 		title.textContent = "Break";
-
-		stopBtn.classList.remove("btnOn");
-		startBtn.classList.remove("btnOn");
-		resetBtn.classList.remove("btnOn");
-
-		turnTimerOff();
 		setTimer(brkTime);
-		displayTimer();
 	}
 	else {
 		title.textContent = "Work";
-
-		stopBtn.classList.remove("btnOn");
-		startBtn.classList.remove("btnOn");
-		resetBtn.classList.remove("btnOn");
-
-		turnTimerOff();
 		setTimer(studyTime);
-		displayTimer();
 	}
+
+	displayTimer();
 }
 //////////////////
 // Sound navbar //
@@ -191,16 +186,19 @@ function shuffle() {
 function toggleSound(keyNum) {
     const sound = document.querySelector(`audio[data-key="${keyNum}"]`);
     const btn = document.querySelector(`button[data-key="${keyNum}"]`);
+    const dot = document.querySelector(`span[data-key="${keyNum}"]`)
     if (!sound) return;
 
     if (sound.paused) {
     	btn.classList.add('playing');
     	sound.currentTime = 0;
     	sound.play();
+    	dot.style.opacity = "1";
     }
     else {
     	btn.classList.remove('playing');
     	sound.pause();
+    	dot.style.opacity = "0";
     }
 }
 
@@ -253,7 +251,7 @@ let saved = false;
 savebtn.onclick = function () {
 	updateTimeSettings();
 	modal.style.display = "none";
-	if (!timerOn) {
+	if (!timerOn && timerReset) {
 		if (checkPomodoro()) {
 			setTimer(studyTime);
 		}
@@ -272,4 +270,38 @@ span.onclick = function() {
     displayTimer();
 }
 
+// Keyboard Inputs
+// space bar = start/stop (keycode = 32)
+// 'r' = reset (keycode = 82)
 
+window.addEventListener('keydown', function(e) {
+	if (e.keyCode == 32) {
+		if (timerOn) {
+			stopTimer();
+		}
+		else {
+			startTimer();
+		}
+	}
+	else if (e.keyCode == 82) {
+		timerReset = true;
+		timerOn = false;
+		clearInterval(timerInterval)
+		startBtn.classList.remove("btnOn");
+		stopBtn.classList.remove("btnOn");
+		resetBtn.classList.remove("disabled");
+		counter = 0;
+		updateTimeSettings();
+
+		if (checkPomodoro()) {
+			setTimer(studyTime);
+		}
+		else {
+			setTimer(brkTime);
+		}
+		displayTimer();
+	}
+	else if (e.keyCode == 83) {
+		shuffle();
+	}
+});
