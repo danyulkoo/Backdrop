@@ -65,17 +65,16 @@ function checkPomodoro() {
 	}
 }
 
-var timerInterval;
-
 // Timer Buttons functions
 var startBtn = document.querySelector('#start');
 var stopBtn = document.querySelector('#stop');
 var resetBtn = document.querySelector('#reset');
 
+var timerInterval;
 function startTimer() {
 	startBtn.classList.add("btnOn");
 	stopBtn.classList.remove("btnOn");
-	resetBtn.classList.remove("btnOn");
+	resetBtn.classList.add("disabled");
 	if (!timerOn)
 	{
 		timerInterval = setInterval(timeIt,1000);
@@ -88,10 +87,12 @@ function turnTimerOff() {
 	timerOn = false;
 }
 
+// Main timer function
 function timeIt() {
 	// If timer runs out
 	if (counter == timeLeft) {
 		timer.textContent = "00:00";
+		// turn Start button off
 		startBtn.classList.remove("btnOn");
 		turnTimerOff();
 
@@ -106,7 +107,6 @@ function timeIt() {
 			}
 			else {
 				setTimer(studyTime);
-				displayTimer();
 			}
 		}
 		else {
@@ -115,7 +115,6 @@ function timeIt() {
 			}
 			else {
 				setTimer(brkTime);
-				displayTimer();
 			}
 		}
 		// Pause alarm sound after they confirm alert
@@ -135,24 +134,28 @@ function stopTimer() {
 		turnTimerOff();
 		stopBtn.classList.add("btnOn");
 		startBtn.classList.remove("btnOn");
-		resetBtn.classList.remove("btnOn");
+		resetBtn.classList.remove("disabled");
 		timerOn = false;
 	}
 }
 
 function resetTimer() {
-	clearInterval(timerInterval)
-	startBtn.classList.remove("btnOn");
-	stopBtn.classList.remove("btnOn");
-	counter = 0;
-	if (checkPomodoro()){
-		timeLeft = studyTime;
+	if (!timerOn) {
+		clearInterval(timerInterval)
+		startBtn.classList.remove("btnOn");
+		stopBtn.classList.remove("btnOn");
+		counter = 0;
+		updateTimeSettings();
+		console.log(studyTime);
+		console.log(brkTime);
+		if (checkPomodoro()) {
+			setTimer(studyTime);
+		}
+		else {
+			setTimer(brkTime);
+		}
+		displayTimer();
 	}
-	else {
-		timeLeft = brkTime;
-	}
-	displayTimer();
-	timerOn = false;
 }
 
 function shuffle() {
@@ -221,21 +224,51 @@ muteBtn.onclick = function() {
   	});
 };
 
-// Settings functions
+///////////////////////////////////
+// Custom Time Setting functions //
+///////////////////////////////////
+let inputStudyTime = document.getElementsByName("studytime")[0].value;
+let inputBrkTime = document.getElementsByName('breaktime')[0].value;
+function updateTimeSettings() {
+	inputStudyTime = document.getElementsByName("studytime")[0].value;
+	inputBrkTime = document.getElementsByName('breaktime')[0].value;
+	studyTime = inputStudyTime * 60;
+	brkTime = inputBrkTime * 60;
+}
+
 // Get the modal
 var modal = document.getElementById("settings-modal");
 // Get the button that opens the modal
 var settingsBtn = document.getElementById("settings-btn");
-
 // Get the <span> element that closes the modal
 var span = document.getElementsByClassName("close")[0];
-
+var savebtn = document.getElementById("savebtn");
 // When the user clicks on the button, open the modal 
 settingsBtn.onclick = function() {
     modal.style.display = "block";
 }
 
+let saved = false;
+savebtn.onclick = function () {
+	updateTimeSettings();
+	modal.style.display = "none";
+	if (!timerOn) {
+		if (checkPomodoro()) {
+			setTimer(studyTime);
+		}
+		else {
+			setTimer(brkTime);
+		}
+		displayTimer();
+	}
+}
+
 // When the user clicks on <span> (x), close the modal
 span.onclick = function() {
     modal.style.display = "none";
+    document.getElementsByName("studytime")[0].value = inputStudyTime;
+	document.getElementsByName('breaktime')[0].value = inputBrkTime;
+    displayTimer();
 }
+
+
