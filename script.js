@@ -57,7 +57,7 @@ var shuffleBtn = document.querySelector('#shuffle');
 var title = document.querySelector('#pomodoro');
 
 function checkPomodoro() {
-	if (title.textContent == "Pomodoro") {
+	if (title.textContent == "Work") {
 		return true;
 	}
 	else {
@@ -94,6 +94,7 @@ function timeIt() {
 		timer.textContent = "00:00";
 		// turn Start button off
 		startBtn.classList.remove("btnOn");
+		resetBtn.classList.remove("disabled");
 		turnTimerOff();
 
 		// Play alarm sound
@@ -171,7 +172,7 @@ function shuffle() {
 		displayTimer();
 	}
 	else {
-		title.textContent = "Pomodoro";
+		title.textContent = "Work";
 
 		stopBtn.classList.remove("btnOn");
 		startBtn.classList.remove("btnOn");

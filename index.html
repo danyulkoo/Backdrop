@@ -3,17 +3,21 @@
 <head>
 	<title>Backdrop</title>
 	<link href="style.css" type="text/css" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
 </head>
 <body style="background-color: rgb(242, 247, 255);">
-	<div class="main-navbar">
-		<h1 id="pomodoro">Pomodoro</h1>
+	<div class="container">
+		<h1 id="title-card">~Backdrop~</h1>
+	</div>
+	<div class="main-navbar" style="min-width: 600px">
+		<h1 id="pomodoro">Work</h1>
 		<button id="shuffle" onclick="shuffle()"><img src="icons/shuffle.png"></button>
 	</div>
-	<div style="text-align: center">
+	<div style="text-align: center; min-width: 600px;">
 		<button id="settings-btn">Settings</button>
 	</div>
 
-	<div id="settings-modal" class="modal">
+	<div id="settings-modal" class="modal" style="min-width: 600px">
 		<div class="modal-content">
 			<span class="close">&times;</span>
 			<div class="set-times">
@@ -33,7 +37,7 @@
 		</div>
 	</div>
 
-	<div id="timer-wrapper">
+	<div id="timer-wrapper" style="min-width: 600px">
 		<div class="timer-buttons">
 			<button id="start" onclick="startTimer()" style="background-color: rgb(145, 214, 122)">Start</button>
 			<button id="stop" onclick="stopTimer()" style="background-color: rgb(193, 96, 96)">Stop</button>
@@ -41,7 +45,7 @@
 		</div>	
 		<p id="timer">Timer</p>
 	</div>
-	<div class="sounds-navbar">
+	<div class="sounds-navbar" style="min-width: 600px">
 		<button id="white-noise-btn" data-key="1" class="sound">
 			<img src="icons/white-noise-icon.png" alt="White Noise Icon">
 		</button>

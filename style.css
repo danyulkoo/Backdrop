@@ -1,7 +1,23 @@
 button:focus, input:focus {outline:0;}
 
+.container {
+	text-align: center;
+	margin-top: 50px;
+}
+
+#title-card {
+	color: rgb(58, 66, 84);
+	font-size: 36pt;
+	font-family: 'Source Sans Pro', sans-serif;
+	letter-spacing: 1.5px;
+	transition: all 0.4s;
+}
+
+#title-card:hover {
+	transform: scale(1.1);
+}
 .main-navbar {
-	margin-top: 100px;
+	margin-top: 10px;
 	text-align: center;
 	color: rgb(103, 114, 117);
 }
@@ -11,6 +27,8 @@ button:focus, input:focus {outline:0;}
 	color: rgb(103, 114, 117);
 	display: inline;
 	letter-spacing: 1px;
+	margin-left: 5px;
+	margin-right: 2px;
 }
 .main-navbar button {
 	font-family: "Trebuchet MS", Helvetica, sans-serif;
@@ -153,7 +171,7 @@ input[type="text"]#min-label {
 
 /* CSS for Timer and Timer Buttons */
 #timer-wrapper {
-	margin: 50px auto 10px;
+	margin: 30px auto 10px;
 	text-align: center;
 }
 
@@ -179,19 +197,23 @@ input[type="text"]#min-label {
 	transition: all 0.05s;
 }
 
-#reset.disabled {
-	border-color: rgb(181, 181, 181);
-	background-color: rgb(229, 229, 229) !important;
-	transform: none !important; 
-}
 .timer-buttons button:hover {
 	transform: scale(1.15);
 }
+
 .timer-buttons #reset:active {
 	transform: scale(1.15);
 	color: rgb(62, 65, 68);
 	border-color: rgb(62, 65, 68);
 	box-shadow: 7px 7px 15px 0px rgba(208,207,255,1);
+}
+
+#reset.disabled {
+	border-color: rgb(181, 181, 181) !important;
+	background-color: rgb(229, 229, 229) !important;
+	transform: none !important;
+	color: rgb(242, 247, 255) !important;
+	box-shadow: none !important; 
 }
 
 .timer-buttons .btnOn {
