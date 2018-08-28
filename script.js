@@ -193,12 +193,12 @@ function toggleSound(keyNum) {
     	btn.classList.add('playing');
     	sound.currentTime = 0;
     	sound.play();
-    	dot.style.opacity = "1";
+    	dot.classList.add('show');
     }
     else {
     	btn.classList.remove('playing');
     	sound.pause();
-    	dot.style.opacity = "0";
+    	dot.classList.remove('show');;
     }
 }
 
@@ -214,10 +214,21 @@ soundButtons.forEach((button) => {
 var muteBtn = document.getElementById('mute');
 
 muteBtn.onclick = function() {
-	//list of all audio elements
+	// list of all audio elements
+	// pause all audio elements
 	var sounds = document.getElementsByTagName('audio');
-  	for(i=0; i<sounds.length; i++) sounds[i].pause();
+  	for(i = 0; i < sounds.length; i++) {
+  		sounds[i].pause();
+  	}
 
+  	// hide all dots
+ 	const dots = Array.from(document.querySelectorAll('#dot'));
+ 	dots.forEach((span) => {
+ 		span.classList.remove('show');
+ 	});
+
+  	// soundButtons was already declared above this function
+  	// remove playing class from all sound buttons
   	soundButtons.forEach((button) => {
   		button.classList.remove('playing');
   	});
@@ -275,7 +286,7 @@ span.onclick = function() {
 // 'r' = reset (keycode = 82)
 
 window.addEventListener('keydown', function(e) {
-	if (e.keyCode == 32) {
+	if (e.keyCode == 83) {
 		if (timerOn) {
 			stopTimer();
 		}
@@ -300,8 +311,5 @@ window.addEventListener('keydown', function(e) {
 			setTimer(brkTime);
 		}
 		displayTimer();
-	}
-	else if (e.keyCode == 83) {
-		shuffle();
 	}
 });

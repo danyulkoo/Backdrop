@@ -237,7 +237,7 @@ input[type="text"]#min-label {
   	border: 2px solid gray;
   	padding: 5px;
   	background-color: white;
-  	transition: all .05s;
+  	transition: all .07s;
 }
 
 #mute:hover {
@@ -268,14 +268,19 @@ input[type="text"]#min-label {
 	height: 40px;
 }
 
-.dots {
+.dot-wrapper {
 	text-align: center;
 	margin-right: 15px;
 	margin-top: 6px;
 }
-.dots span{
+#dot {
 	color: rgb(66, 66, 66);
 	opacity: 0;
 	margin-right: 84px;
 	position: relative;
+	transition: all .2s;
+}
+
+#dot.show {
+	opacity: 1;
 }
