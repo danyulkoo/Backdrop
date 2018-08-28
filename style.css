@@ -34,7 +34,7 @@ button:focus, input:focus {outline:0;}
 	font-family: "Trebuchet MS", Helvetica, sans-serif;
 	transition: all 0.05s;
 	padding: 0;
-	width: 19px;
+	width: 1.22%;
 	height: 30px;
 }
 
@@ -95,8 +95,8 @@ button:focus, input:focus {outline:0;}
     padding-bottom: 20px; /*Padding of the box*/
     border: 3px solid rgb(71, 74, 79);
     border-radius: 15px;
-    min-width: 220px;
-    width: 230px;
+    min-width: 230px;
+    width: 14.8196%;
 }
 
 .modal-content h1 {
@@ -131,6 +131,7 @@ input[type="text"]#min-label {
     -moz-user-select: none; /* mozilla browsers */
     text-align: right;
     margin: 0 0 0 -7px;
+    min-width: 55px;
     width: 55px;
     height: 25px;
     border-left: 0;
