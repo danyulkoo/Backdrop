@@ -150,6 +150,7 @@ function resetTimer() {
 		startBtn.classList.remove("btnOn");
 		stopBtn.classList.remove("btnOn");
 		counter = 0;
+		readTimeSettings();
 		updateTimeSettings();
 
 		if (checkPomodoro()) {
@@ -167,6 +168,8 @@ function shuffle() {
 	startBtn.classList.remove("btnOn");
 	resetBtn.classList.remove("disabled");
 	turnTimerOff();
+	readTimeSettings();
+	updateTimeSettings();
 	if (checkPomodoro()) {
 		title.textContent = "Break";
 		setTimer(brkTime);
@@ -237,15 +240,18 @@ muteBtn.onclick = function() {
 ///////////////////////////////////
 // Custom Time Setting functions //
 ///////////////////////////////////
-let inputStudyTime = document.getElementsByName("studytime")[0].value;
-let inputBrkTime = document.getElementsByName('breaktime')[0].value;
-function updateTimeSettings() {
-	inputStudyTime = document.getElementsByName("studytime")[0].value;
-	inputBrkTime = document.getElementsByName('breaktime')[0].value;
-	studyTime = inputStudyTime * 60;
-	brkTime = inputBrkTime * 60;
+let inputStudyTime = (document.getElementsByName("studytime")[0].value) * 60;
+let inputBrkTime = (document.getElementsByName('breaktime')[0].value)  * 60;
+
+function readTimeSettings() {
+	inputStudyTime = (document.getElementsByName("studytime")[0].value) * 60;
+	inputBrkTime = (document.getElementsByName('breaktime')[0].value) * 60;
 }
 
+function updateTimeSettings() {
+	studyTime = inputStudyTime;
+	brkTime = inputBrkTime;
+}
 // Get the modal
 var modal = document.getElementById("settings-modal");
 // Get the button that opens the modal
@@ -258,9 +264,22 @@ settingsBtn.onclick = function() {
     modal.style.display = "block";
 }
 
-let saved = false;
+// DOM elements of the actual text input boxes
+var studyTimeBox = document.getElementsByName("studytime")[0];
+var brkTimeBox = document.getElementsByName('breaktime')[0];
+
+function formatSettingsInput () {
+	// format the time to look nice
+	if (studyTimeBox.value < 10 && studyTimeBox.value[0] != "0") {
+		studyTimeBox.value = "0" + studyTimeBox.value;
+	}
+	if (brkTimeBox.value < 10 && brkTimeBox.value[0] != "0") {
+		brkTimeBox.value = "0" + brkTimeBox.value;
+	}
+}
 savebtn.onclick = function () {
-	updateTimeSettings();
+	readTimeSettings();
+	formatSettingsInput();
 	modal.style.display = "none";
 	if (!timerOn && timerReset) {
 		if (checkPomodoro()) {
@@ -276,8 +295,9 @@ savebtn.onclick = function () {
 // When the user clicks on <span> (x), close the modal
 span.onclick = function() {
     modal.style.display = "none";
-    document.getElementsByName("studytime")[0].value = inputStudyTime;
-	document.getElementsByName('breaktime')[0].value = inputBrkTime;
+    studyTimeBox.value = inputStudyTime / 60;
+	brkTimeBox.value = inputBrkTime / 60;
+	formatSettingsInput();
     displayTimer();
 }
 
@@ -302,7 +322,7 @@ window.addEventListener('keydown', function(e) {
 		stopBtn.classList.remove("btnOn");
 		resetBtn.classList.remove("disabled");
 		counter = 0;
-		updateTimeSettings();
+		readTimeSettings();
 
 		if (checkPomodoro()) {
 			setTimer(studyTime);
