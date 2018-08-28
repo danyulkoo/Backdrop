@@ -253,6 +253,8 @@ input[type="text"]#min-label {
 	margin: 0;
 }
 .sounds-navbar button {
+	position: relative;
+	text-align: center;
 	margin: 0 20px;
 	border-radius: 15px;
   	border: 2px solid gray;
@@ -261,13 +263,24 @@ input[type="text"]#min-label {
   	transition: all .07s;
 }
 
+.centered {
+    position: absolute;
+	display: none;
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
+	font-size: 8pt;
+    font-weight: bold;
+	color: rgb(66, 66, 66);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
 #mute:hover {
 	transform: scale(1.2);
 	border-color: black;
 }
 
-
-#white-noise-btn:hover, #white-noise-btn.playing{
+#white-noise-btn:hover, #white-noise-btn.playing {
 	transform: scale(1.2);
 	border-color: rgb(94, 94, 94);
 }

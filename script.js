@@ -206,13 +206,42 @@ function toggleSound(keyNum) {
 // get queryList of sound buttons
 const soundButtons = Array.from(document.querySelectorAll('.sound'));
 soundButtons.forEach((button) => {
+	// When you click a sound button -> turn respective audio on
   	button.addEventListener('click', 
   		function() {
   			toggleSound(button.getAttribute('data-key'));
+  			button.children[0].style.opacity = "1";
+  			button.children[1].style.display = "none";
+  		});
+
+  	// When you hover over button -> show respective description
+  	button.addEventListener('mouseenter',
+  		function() {
+  			if (!(button.classList.contains("playing"))) {
+	  			button.children[0].style.opacity = "0.1";
+	  			button.children[1].style.display = "block";
+	  		}
+  		});
+
+ 	// Revert button to original style when mouse is not hovered over
+  	button.addEventListener('mouseleave',
+  		function() {
+  			button.children[0].style.opacity = "1";
+  			button.children[1].style.display = "none";
   		});
 });
 
 var muteBtn = document.getElementById('mute');
+
+muteBtn.onmouseover = function() {
+	muteBtn.children[0].style.opacity = "0.1";
+	muteBtn.children[1].style.display = "block";
+}
+
+muteBtn.onmouseout = function() {
+	muteBtn.children[0].style.opacity = "1";
+	muteBtn.children[1].style.display = "none";
+}
 
 muteBtn.onclick = function() {
 	// list of all audio elements
@@ -333,3 +362,5 @@ window.addEventListener('keydown', function(e) {
 		displayTimer();
 	}
 });
+
+// Sound bar Scripts
