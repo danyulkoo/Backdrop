@@ -247,21 +247,30 @@ input[type="text"]#min-label {
 }
 
 /* CSS for Sound buttons */
+.sounds-wrapper {
+	text-align: center;
+}
 .sounds-navbar {
+	width: 476px;
 	text-align: center;
+	margin: 0 auto;
 }
-.sounds-navbar p {
-	margin: 0;
-}
+
 .sounds-navbar button {
-	position: relative;
-	text-align: center;
 	margin: 0 20px;
 	border-radius: 15px;
   	border: 2px solid gray;
   	padding: 5px;
   	background-color: white;
   	transition: all .07s;
+}
+
+.button-wrapper {
+	float: left;
+	height: 78px;
+	width: 95px;
+	margin: 0 auto;
+	text-align: center;
 }
 
 .centered {
@@ -308,14 +317,15 @@ input[type="text"]#min-label {
 	margin-right: 15px;
 	margin-top: 6px;
 }
+
 #dot {
+	display: block;
 	color: rgb(66, 66, 66);
 	opacity: 0;
-	margin-right: 84px;
-	position: relative;
 	transition: all .2s;
 }
 
 #dot.show {
+	display: block;
 	opacity: 1;
 }
