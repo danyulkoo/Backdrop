@@ -124,6 +124,10 @@ button:focus, input:focus {outline:0;}
 	width: 180px;
 }
 
+#break-time {
+	margin-left: 24.5px;
+}
+
 input[type="text"]#min-label {
 	-webkit-user-select: none; /* webkit (safari, chrome) browsers */
     -moz-user-select: none; /* mozilla browsers */
