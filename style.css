@@ -6,6 +6,7 @@ button:focus, input:focus {outline:0;}
 }
 
 #title-card {
+	min-width: 600px;
 	color: rgb(58, 66, 84);
 	font-size: 36pt;
 	font-family: 'Source Sans Pro', sans-serif;
@@ -248,6 +249,7 @@ input[type="text"]#min-label {
 
 /* CSS for Sound buttons */
 .sounds-wrapper {
+	margin: 0 auto;
 	text-align: center;
 }
 .sounds-navbar {
