@@ -5,20 +5,20 @@
 	<link href="style.css" type="text/css" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
 </head>
 <body style="background-color: rgb(237, 243, 255);">
-	<div class="container">
+	<div class="container" style="min-width: 38.6598%">
 		<h1 id="title-card">~Backdrop~</h1>
 	</div>
-	<div class="main-navbar" style="min-width: 600px">
+	<div class="main-navbar">
 		<h1 id="pomodoro">Work</h1>
 		<button id="shuffle" onclick="shuffle()"><img src="icons/shuffle.png"></button>
 	</div>
-	<div style="text-align: center; min-width: 600px;">
+	<div id="settings-btn-wrapper" style="text-align: center">
 		<button id="settings-btn">Settings</button>
 	</div>
-	<div id="settings-modal" class="modal" style="min-width: 600px">
+	<div id="settings-modal" class="modal">
 		<div class="modal-content">
 			<button class="close">&times;</button>
 			<div class="set-times">
@@ -39,7 +39,7 @@
 			<button id="savebtn">Save</button>
 		</div>
 	</div>
-	<div id="timer-wrapper" style="min-width: 600px">
+	<div id="timer-wrapper">
 		<div class="timer-buttons">
 			<button id="start" onclick="startTimer()" style="background-color: rgb(145, 214, 122)">Start</button>
 			<button id="stop" onclick="stopTimer()" style="background-color: rgb(193, 96, 96)">Stop</button>
@@ -47,7 +47,7 @@
 		</div>	
 		<p id="timer">Timer</p>
 	</div>
-	<div class="sounds-wrapper" style="min-width: 600px">
+	<div class="sounds-wrapper">
 		<div class="sounds-navbar">
 			<div class="button-wrapper">
 				<button id="white-noise-btn" data-key="1" class="sound">
@@ -92,4 +92,10 @@
 	<audio loop data-key="4" src="sounds/waves.wav"></audio>
 	<script src="script.js"></script>
 </body>
+<script type="text/javascript">
+	document.addEventListener('touchstart', function addtouchclass(e){ // first time user touches the screen
+	    document.documentElement.classList.add('is-touch') // add "can-touch" class to document root using classList API
+	    document.removeEventListener('touchstart', addtouchclass, false) // de-register touchstart event
+	}, false)
+</script>
 </html>
