@@ -120,11 +120,8 @@ button:focus, input:focus {outline:0;}
 .custom-input {
 	margin: 0 auto;
 	height: 35px;
-	width: 178px;
-}
-
-#break-time {
-	display: inline;
+	min-width: 180px;
+	width: 180px;
 }
 
 input[type="text"]#min-label {
