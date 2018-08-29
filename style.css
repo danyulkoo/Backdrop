@@ -319,6 +319,7 @@ input[type="text"]#min-label {
 }
 
 #dot {
+	margin-top: 5px;
 	display: block;
 	color: rgb(66, 66, 66);
 	opacity: 0;
