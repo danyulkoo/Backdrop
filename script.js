@@ -234,8 +234,10 @@ soundButtons.forEach((button) => {
 var muteBtn = document.getElementById('mute');
 
 muteBtn.onmouseover = function() {
-	muteBtn.children[0].style.opacity = "0.1";
-	muteBtn.children[1].style.display = "block";
+	if (!document.documentElement.classList.contains('is-touch')) {
+		muteBtn.children[0].style.opacity = "0.1";
+		muteBtn.children[1].style.display = "block";
+	}
 }
 
 muteBtn.onmouseout = function() {
