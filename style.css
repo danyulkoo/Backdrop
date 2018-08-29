@@ -76,6 +76,7 @@ button:focus, input:focus {outline:0;}
 /* The Modal (background) */
 .modal {
     display: none;
+    text-align: center;
     position: fixed;
     z-index: 1;
     padding-top: 200px; /* Location of the box */
@@ -124,7 +125,6 @@ button:focus, input:focus {outline:0;}
 
 #break-time {
 	display: inline;
-	margin-left: 24.5px;
 }
 
 input[type="text"]#min-label {
