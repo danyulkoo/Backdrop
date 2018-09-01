@@ -150,13 +150,13 @@ body {
     border: 3px solid rgb(71, 74, 79);
     border-radius: 15px;
     min-width: 14.8196%;
-	width: 240px;
+	width: 16%;
 }
 
 .modal-content h1 {
 	color: rgb(71, 74, 79);
 	font-family: "Trebuchet MS", Helvetica, sans-serif;
-	font-size: 18pt;
+	font-size: 16pt;
 	font-weight: 200;
 	text-align: center;
 }
@@ -172,13 +172,16 @@ body {
 .custom-input {
 	display: inline;
 	margin: 0 auto;
-	height: 35px;
 	min-width: 180px;
-	width: 180px;
 }
 
+.custom-input p {
+	margin: 0 auto 4px;
+}
 
-
+.custom-input input {
+	margin-bottom: 12px;
+}
 input[type="text"]#min-label {
 	-webkit-user-select: none; /* webkit (safari, chrome) browsers */
     -moz-user-select: none; /* mozilla browsers */
@@ -199,7 +202,6 @@ input[type="text"]#min-label {
 	font-size: 11pt;
 	padding-left: 6px;
 	margin-right: -3px;
-	margin-bottom: 8px;
 	width: 24px;
 	height: 25px;
 	border: 1px solid gray;
@@ -209,7 +211,9 @@ input[type="text"]#min-label {
 /* The Close Button */
 .close {
 	position: absolute;
-	right: 7px;
+	right: 2px;
+	top: 0px;
+	height: 24px;
     color: #aaa;
     font-size: 24px;
     font-weight: bold;
@@ -228,12 +232,9 @@ input[type="text"]#min-label {
 	display: block;
 	background-color: transparent;
 	border: none;
-	margin-top: 15px;
 	line-height: 10px;
 	color: gray;
-	margin-left: auto;
-	margin-right: auto;
-	margin-bottom: 10px;
+	margin: 5px auto;
 	transition: all .05s;
 }
 
