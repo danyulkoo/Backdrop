@@ -149,8 +149,8 @@ body {
     padding-bottom: 20px; /*Padding of the box*/
     border: 3px solid rgb(71, 74, 79);
     border-radius: 15px;
-    min-width: 230px;
-    width: 14.8196%;
+    min-width: 14.8196%;
+	width: 240px;
 }
 
 .modal-content h1 {
@@ -170,15 +170,14 @@ body {
 }
 
 .custom-input {
+	display: inline;
 	margin: 0 auto;
 	height: 35px;
 	min-width: 180px;
 	width: 180px;
 }
 
-#break-time {
-	margin-left: 24.5px;
-}
+
 
 input[type="text"]#min-label {
 	-webkit-user-select: none; /* webkit (safari, chrome) browsers */
