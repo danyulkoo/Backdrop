@@ -36,7 +36,7 @@ function convertSeconds(s)
 const timer = document.querySelector('#timer');
 let studyTime = 1500;
 let brkTime = 300;
-var alarm = new Audio('sounds/timerbeep.wav');
+var alarm = document.getElementById("alarm");
 
 let counter = 0;
 let timeLeft = studyTime;
@@ -53,6 +53,7 @@ function setTimer(t) {
 function displayTimer() {
 	timer.textContent = convertSeconds(timeLeft - counter);
 }
+
 // Shuffle Button functions
 var shuffleBtn = document.querySelector('#shuffle');
 var title = document.querySelector('#pomodoro');
@@ -73,6 +74,7 @@ var resetBtn = document.querySelector('#reset');
 
 var timerInterval;
 function startTimer() {
+	// Style buttons
 	startBtn.classList.add("btnOn");
 	stopBtn.classList.remove("btnOn");
 	resetBtn.classList.add("disabled");
@@ -91,10 +93,10 @@ function turnTimerOff() {
 
 // Main timer function
 function timeIt() {
-	// If timer runs out
+	// when timer runs out
 	if (counter >= timeLeft) {
 		timer.textContent = "00:00";
-		// turn Start button off
+		// turn off styles for start & reset buttons
 		startBtn.classList.remove("btnOn");
 		resetBtn.classList.remove("disabled");
 		turnTimerOff();
@@ -103,6 +105,9 @@ function timeIt() {
 		alarm.currentTime = 0;
 		alarm.play();
 
+		timerReset = true;
+		updateTimeSettings();
+		
 		// Switch to Break when Timer runs out and vice versa
 		if (checkPomodoro()) {
 			if (confirm("Switch to a short break?")) {
@@ -121,7 +126,6 @@ function timeIt() {
 			}
 		}
 		// Pause alarm sound after they confirm alert
-		alarm.currentTime = 0;
 		alarm.pause();
 	}
 	else if (counter < timeLeft) {
@@ -281,6 +285,7 @@ function updateTimeSettings() {
 	studyTime = inputStudyTime;
 	brkTime = inputBrkTime;
 }
+
 // Get the modal
 var modal = document.getElementById("settings-modal");
 // Get the button that opens the modal
@@ -307,10 +312,12 @@ function formatSettingsInput () {
 	}
 }
 
+// when user clicks save button on settings
 savebtn.onclick = function () {
 	readTimeSettings();
 	formatSettingsInput();
 	modal.style.display = "none";
+
 	if (!timerOn && timerReset) {
 		updateTimeSettings();
 		if (checkPomodoro()) {
