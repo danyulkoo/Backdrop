@@ -87,7 +87,7 @@ body {
 	font-family: "Trebuchet MS", Helvetica, sans-serif;
 	transition: all 0.05s;
 	padding: 0;
-	width: 1.22%;
+	min-width: 18px;
 	height: 30px;
 }
 
