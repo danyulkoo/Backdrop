@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Backdrop</title>
+	<meta charset="utf-8">
+	<link href="/css/style.css" type="text/css" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, maximum-scale=1">
+</head>
+<body style="background-color: rgb(237, 243, 255);">
+	<div class="container-fluid">
+		<div class="title-wrapper" style="min-width: 38.6598%">
+			<h1 id="title-card">~Backdrop~</h1>
+		</div>
+		<div class="main-navbar">
+			<h1 id="pomodoro">Work</h1>
+			<button id="shuffle" onclick="shuffle()"><img src="icons/shuffle.png"></button>
+		</div>
+		<div id="settings-btn-wrapper" style="text-align: center">
+			<button id="settings-btn">Settings</button>
+		</div>
+		<div id="settings-modal" class="modal container-fluid">
+			<div class="modal-content">
+				<button class="close">&times;</button>
+				<div class="set-times">
+					<h1><u>Set Custom Times</u></h1>
+					<form id="custom-study" action="">
+						<div id="study-time" class="custom-input">
+							<p>Study Time:</p>
+							<input type="text" name="studytime" value="25" maxlength="2">
+							<input type="text" id="min-label" value="minutes" disabled>
+						</div>
+						<div id="break-time" class="custom-input">
+							<p>Break Time:</p>
+							<input type="text" name="breaktime" value="05" maxlength="2">
+							<input type="text" id="min-label" value="minutes" disabled>
+						</div>
+					</form>
+				</div>
+				<button id="savebtn">Save</button>
+			</div>
+		</div>
+		<div id="timer-wrapper">
+			<div class="timer-buttons">
+				<button id="start" onclick="startTimer()" style="background-color: rgb(145, 214, 122)">Start</button>
+				<button id="stop" onclick="stopTimer()" style="background-color: rgb(193, 96, 96)">Stop</button>
+				<button id="reset" onclick="resetTimer()" style="background-color: rgb(158, 162, 193)">Reset</button>
+			</div>	
+			<p id="timer">Timer</p>
+		</div>
+		<div class="sounds-wrapper">
+			<div class="sounds-navbar">
+				<div class="button-wrapper">
+					<button id="white-noise-btn" data-key="1" class="sound">
+						<img src="icons/white-noise-icon.png" alt="White Noise Icon">
+						<div class="centered">White Noise</div>
+					</button>
+					<span id="dot" data-key="1">&#9679;</span>
+				</div>
+				<div class="button-wrapper">
+					<button id="rain-btn" data-key="2" class="sound">
+						<img src="icons/rain-icon.png" alt="Rainfall Icon">
+						<div class="centered">Rainfall</div>
+					</button>
+					<span id="dot" data-key="2">&#9679;</span>
+				</div>
+				<div class="button-wrapper">
+					<button id="campfire-btn" data-key="3" class="sound">
+						<img src="icons/campfire-icon.png" alt="Campfire Icon">
+						<div class="centered">Campfire</div>
+					</button>
+					<span id="dot" data-key="3">&#9679;</span>
+				</div>
+				<div class="button-wrapper">
+					<button id="waves-btn" data-key="4" class="sound">
+						<img src="icons/waves-icon.png" alt="Ocean Waves Icon">
+						<div class="centered">Ocean Waves</div>
+					</button>
+					<span id="dot" data-key="4">&#9679;</span>
+				</div>
+				<div class="button-wrapper">
+					<button id="mute">
+						<img src="icons/mute-icon.png" alt="No Sound Icon">
+						<div class="centered">Sound Off</div>
+					</button>
+				</div>
+			</div>
+		</div>
+
+		<audio loop data-key="1" src="sounds/white-noise.wav"></audio>
+		<audio loop data-key="2" src="sounds/rain.wav"></audio>
+		<audio loop data-key="3" src="sounds/campfire.wav"></audio>
+		<audio loop data-key="4" src="sounds/waves.wav"></audio>
+		<audio id="alarm" src="sounds/timerbeep.wav"></audio>
+		<script src="/js/script.js"></script>
+	</div>
+</body>
+<script type="text/javascript">
+	document.addEventListener('touchstart', function addtouchclass(e){ // first time user touches the screen
+		document.documentElement.classList.add('is-touch') // add "can-touch" class to document root using classList API
+		document.removeEventListener('touchstart', addtouchclass, false) // de-register touchstart event
+	}, false)
+</script>
+</html>

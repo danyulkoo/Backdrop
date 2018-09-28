@@ -1,0 +1,23 @@
+{
+  "name": "backdrop",
+  "version": "1.0.0",
+  "description": "Pomodoro web app with features such as: selection of ambient noise and a to-do list",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/danyulkoo/Backdrop.git"
+  },
+  "keywords": [
+    "backdrop",
+    "pomodoro"
+  ],
+  "author": "Daniel Koo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/danyulkoo/Backdrop/issues"
+  },
+  "homepage": "https://github.com/danyulkoo/Backdrop#readme"
+}
