@@ -1,6 +1,8 @@
 # Backdrop
 Pomodoro website with selection of ambient noises as well as custom settings
 
+![Backdrop Screenshot](https://i.imgur.com/mOlyZbA.png)
+
 Current version can be visited [here](https://danyulkoo.github.io/Backdrop/)
 
 * Written in plain HTML, CSS, and JavaScript
